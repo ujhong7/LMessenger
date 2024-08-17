@@ -12,9 +12,11 @@ class HomeViewModel: ObservableObject {
     
     enum Action {
         case load
+        case requestContacts
         case presentMyProfileView
         case presentOtherProfileView(String)
     }
+    
     @Published var myUser: User?
     @Published var users: [User] = [] // [.stub1, .stub2]
     @Published var phase: Phase = .notRequested
@@ -49,6 +51,22 @@ class HomeViewModel: ObservableObject {
                     self?.users = users
                 }.store(in: &subscriptions)
             
+        case .requestContacts:
+            container.services.contactService.fetchContacts()
+                .flatMap { users in
+                    self.container.services.userService.addUserAfterContact(users: users)
+                }.flatMap { _ in
+                    self.container.services.userService.loadUsers(id: self.userId)
+                }
+                .sink { [weak self] completion in
+                    if case .failure = completion {
+                        self?.phase = .fail
+                    }
+                } receiveValue: { [weak self] users in
+                    self?.phase = .success
+                    self?.users = users
+                }.store(in: &subscriptions)
+
         case .presentMyProfileView:
             modalDestination = .myProfile
             

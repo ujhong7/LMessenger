@@ -40,6 +40,7 @@
 		1D7483EC2C6FAA6200202C5C /* HomeModalDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483EB2C6FAA6200202C5C /* HomeModalDestination.swift */; };
 		1D7483EF2C6FAC0A00202C5C /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483EE2C6FAC0A00202C5C /* MyProfileView.swift */; };
 		1D7483F12C6FAC1700202C5C /* OtherProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F02C6FAC1700202C5C /* OtherProfileView.swift */; };
+		1D7483F32C703A6B00202C5C /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F22C703A6B00202C5C /* ContactService.swift */; };
 		723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */; };
 		723ABD892AFFF1B800C260F1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */; };
 		723ABD8B2AFFF1B900C260F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723ABD8A2AFFF1B900C260F1 /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		1D7483EB2C6FAA6200202C5C /* HomeModalDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModalDestination.swift; sourceTree = "<group>"; };
 		1D7483EE2C6FAC0A00202C5C /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		1D7483F02C6FAC1700202C5C /* OtherProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileView.swift; sourceTree = "<group>"; };
+		1D7483F22C703A6B00202C5C /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
 		723ABD832AFFF1B800C260F1 /* LMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessengerApp.swift; sourceTree = "<group>"; };
 		723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
@@ -156,8 +158,9 @@
 			children = (
 				1D74839D2C687E4600202C5C /* Services.swift */,
 				1D7483AE2C68AA7F00202C5C /* AuthenticationService.swift */,
-				1D7483C22C69043A00202C5C /* ServiceError.swift */,
 				1D7483D62C6D9E1000202C5C /* UserService.swift */,
+				1D7483F22C703A6B00202C5C /* ContactService.swift */,
+				1D7483C22C69043A00202C5C /* ServiceError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				1D7483EC2C6FAA6200202C5C /* HomeModalDestination.swift in Sources */,
 				1D7483A22C68907500202C5C /* AuthenticationViewModel.swift in Sources */,
 				1D74839B2C687E1900202C5C /* DIContainer.swift in Sources */,
+				1D7483F32C703A6B00202C5C /* ContactService.swift in Sources */,
 				1D7483EA2C6FA84400202C5C /* ErrorView.swift in Sources */,
 				723ABD892AFFF1B800C260F1 /* AuthenticatedView.swift in Sources */,
 				1D74839E2C687E4600202C5C /* Services.swift in Sources */,
@@ -690,6 +694,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LMessenger/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "친구 목록을 가져옵니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -720,6 +725,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LMessenger/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "친구 목록을 가져옵니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
