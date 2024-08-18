@@ -41,6 +41,9 @@
 		1D7483EF2C6FAC0A00202C5C /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483EE2C6FAC0A00202C5C /* MyProfileView.swift */; };
 		1D7483F12C6FAC1700202C5C /* OtherProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F02C6FAC1700202C5C /* OtherProfileView.swift */; };
 		1D7483F32C703A6B00202C5C /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F22C703A6B00202C5C /* ContactService.swift */; };
+		1D7483F52C70BCE100202C5C /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F42C70BCE100202C5C /* MyProfileViewModel.swift */; };
+		1D7483F72C70C82200202C5C /* MyProfileMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F62C70C82200202C5C /* MyProfileMenuType.swift */; };
+		1D7483F92C71A37400202C5C /* MyProfileDescEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F82C71A37400202C5C /* MyProfileDescEditView.swift */; };
 		723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */; };
 		723ABD892AFFF1B800C260F1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */; };
 		723ABD8B2AFFF1B900C260F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723ABD8A2AFFF1B900C260F1 /* Assets.xcassets */; };
@@ -101,6 +104,9 @@
 		1D7483EE2C6FAC0A00202C5C /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		1D7483F02C6FAC1700202C5C /* OtherProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileView.swift; sourceTree = "<group>"; };
 		1D7483F22C703A6B00202C5C /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
+		1D7483F42C70BCE100202C5C /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
+		1D7483F62C70C82200202C5C /* MyProfileMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileMenuType.swift; sourceTree = "<group>"; };
+		1D7483F82C71A37400202C5C /* MyProfileDescEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDescEditView.swift; sourceTree = "<group>"; };
 		723ABD832AFFF1B800C260F1 /* LMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessengerApp.swift; sourceTree = "<group>"; };
 		723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
@@ -272,6 +278,9 @@
 			children = (
 				1D7483EE2C6FAC0A00202C5C /* MyProfileView.swift */,
 				1D7483F02C6FAC1700202C5C /* OtherProfileView.swift */,
+				1D7483F42C70BCE100202C5C /* MyProfileViewModel.swift */,
+				1D7483F62C70C82200202C5C /* MyProfileMenuType.swift */,
+				1D7483F82C71A37400202C5C /* MyProfileDescEditView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -523,7 +532,10 @@
 				723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */,
 				1D7483B92C68F5BB00202C5C /* LoginView.swift in Sources */,
 				1D7483AF2C68AA7F00202C5C /* AuthenticationService.swift in Sources */,
+				1D7483F52C70BCE100202C5C /* MyProfileViewModel.swift in Sources */,
 				1D7483CC2C69E36500202C5C /* HomeView.swift in Sources */,
+				1D7483F72C70C82200202C5C /* MyProfileMenuType.swift in Sources */,
+				1D7483F92C71A37400202C5C /* MyProfileDescEditView.swift in Sources */,
 				1D7483C32C69043A00202C5C /* ServiceError.swift in Sources */,
 				1D7483E62C6FA77D00202C5C /* PlaceholderView.swift in Sources */,
 				1D7483D72C6D9E1000202C5C /* UserService.swift in Sources */,

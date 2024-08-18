@@ -12,6 +12,8 @@ import FirebaseDatabase
 protocol UserDBRepositoryType {
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError>
     func getUser(userId: String) -> AnyPublisher<UserObject, DBError>
+    func getUser(userId: String) async throws -> UserObject
+    func updateUser(userId: String, key: String, value: Any) async throws
     func loadUsers() -> AnyPublisher<[UserObject], DBError>
     func addUserAfterContact(users: [UserObject]) -> AnyPublisher<Void, DBError>
 }
@@ -67,6 +69,23 @@ class UserDBRepository: UserDBRepositoryType {
                 return Fail(error: .emptyValue).eraseToAnyPublisher()
             }
         }.eraseToAnyPublisher()
+    }
+    
+    func getUser(userId: String) async throws -> UserObject {
+        guard let value = try await self.db.child(DBKey.Users).child(userId).getData().value else {
+            throw DBError.emptyValue
+        }
+        
+        // 딕셔너리 형태 -> UserObject로 변환하기
+        // 1. 딕셔너리를 데이터화
+        let data = try JSONSerialization.data(withJSONObject: value)
+        // 2. UserObject에 맞게 decode
+        let userObject = try JSONDecoder().decode(UserObject.self, from: data)
+        return userObject
+    }
+    
+    func updateUser(userId: String, key: String, value: Any) async throws {
+        try await self.db.child(DBKey.Users).child(userId).child(key).setValue(value)
     }
     
     func loadUsers() -> AnyPublisher<[UserObject], DBError> {

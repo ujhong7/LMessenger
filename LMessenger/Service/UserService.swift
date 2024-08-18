@@ -12,6 +12,8 @@ protocol UserServieType {
     func addUser(_ user: User) -> AnyPublisher<User, ServiceError>
     func addUserAfterContact(users: [User]) -> AnyPublisher<Void, ServiceError>
     func getUser(userId: String) -> AnyPublisher<User, ServiceError>
+    func getUser(userId: String) async throws -> User
+    func updateDescription(userId: String, description: String) async throws
     func loadUsers(id: String) -> AnyPublisher<[User], ServiceError>
 }
 
@@ -43,6 +45,15 @@ class UserService: UserServieType {
             .eraseToAnyPublisher()
     }
     
+    func getUser(userId: String) async throws -> User {
+        let userObject = try await dbRepository.getUser(userId: userId)
+        return userObject.toModel()
+    }
+    
+    func updateDescription(userId: String, description: String) async throws {
+        try await dbRepository.updateUser(userId: userId, key: "description", value: description)
+    }
+    
     func loadUsers(id: String) -> AnyPublisher<[User], ServiceError> {
         dbRepository.loadUsers()
             .map { $0
@@ -65,6 +76,14 @@ class StubUserService: UserServieType {
     
     func getUser(userId: String) -> AnyPublisher<User, ServiceError> {
         Just(.stub1).setFailureType(to: ServiceError.self).eraseToAnyPublisher()
+    }
+    
+    func getUser(userId: String) async throws -> User {
+        return .stub1
+    }
+    
+    func updateDescription(userId: String, description: String) async throws {
+        
     }
     
     func loadUsers(id: String) -> AnyPublisher<[User], ServiceError> {
