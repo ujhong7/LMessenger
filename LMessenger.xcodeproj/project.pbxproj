@@ -44,6 +44,8 @@
 		1D7483F52C70BCE100202C5C /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F42C70BCE100202C5C /* MyProfileViewModel.swift */; };
 		1D7483F72C70C82200202C5C /* MyProfileMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F62C70C82200202C5C /* MyProfileMenuType.swift */; };
 		1D7483F92C71A37400202C5C /* MyProfileDescEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483F82C71A37400202C5C /* MyProfileDescEditView.swift */; };
+		1D7483FB2C7368E400202C5C /* PhotoPickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483FA2C7368E400202C5C /* PhotoPickerService.swift */; };
+		1D7483FE2C736B1800202C5C /* PhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7483FD2C736B1800202C5C /* PhotoImage.swift */; };
 		723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */; };
 		723ABD892AFFF1B800C260F1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */; };
 		723ABD8B2AFFF1B900C260F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723ABD8A2AFFF1B900C260F1 /* Assets.xcassets */; };
@@ -107,6 +109,8 @@
 		1D7483F42C70BCE100202C5C /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
 		1D7483F62C70C82200202C5C /* MyProfileMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileMenuType.swift; sourceTree = "<group>"; };
 		1D7483F82C71A37400202C5C /* MyProfileDescEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDescEditView.swift; sourceTree = "<group>"; };
+		1D7483FA2C7368E400202C5C /* PhotoPickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerService.swift; sourceTree = "<group>"; };
+		1D7483FD2C736B1800202C5C /* PhotoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImage.swift; sourceTree = "<group>"; };
 		723ABD832AFFF1B800C260F1 /* LMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessengerApp.swift; sourceTree = "<group>"; };
 		723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		1D74839C2C687E2400202C5C /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				1D7483FC2C736B0200202C5C /* PhotoPicker */,
 				1D74839D2C687E4600202C5C /* Services.swift */,
 				1D7483AE2C68AA7F00202C5C /* AuthenticationService.swift */,
 				1D7483D62C6D9E1000202C5C /* UserService.swift */,
@@ -283,6 +288,15 @@
 				1D7483F82C71A37400202C5C /* MyProfileDescEditView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		1D7483FC2C736B0200202C5C /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				1D7483FA2C7368E400202C5C /* PhotoPickerService.swift */,
+				1D7483FD2C736B1800202C5C /* PhotoImage.swift */,
+			);
+			path = PhotoPicker;
 			sourceTree = "<group>";
 		};
 		723ABD7A2AFFF1B800C260F1 = {
@@ -514,6 +528,7 @@
 				1D7483D02C69E79500202C5C /* HomeViewModel.swift in Sources */,
 				1D7483DD2C6DA5CE00202C5C /* DBError.swift in Sources */,
 				1D7483B52C68B5A500202C5C /* LoginIntroView.swift in Sources */,
+				1D7483FE2C736B1800202C5C /* PhotoImage.swift in Sources */,
 				1D7483AA2C68A4B000202C5C /* AppDelegate .swift in Sources */,
 				1D7483EC2C6FAA6200202C5C /* HomeModalDestination.swift in Sources */,
 				1D7483A22C68907500202C5C /* AuthenticationViewModel.swift in Sources */,
@@ -537,6 +552,7 @@
 				1D7483F72C70C82200202C5C /* MyProfileMenuType.swift in Sources */,
 				1D7483F92C71A37400202C5C /* MyProfileDescEditView.swift in Sources */,
 				1D7483C32C69043A00202C5C /* ServiceError.swift in Sources */,
+				1D7483FB2C7368E400202C5C /* PhotoPickerService.swift in Sources */,
 				1D7483E62C6FA77D00202C5C /* PlaceholderView.swift in Sources */,
 				1D7483D72C6D9E1000202C5C /* UserService.swift in Sources */,
 				1D7483D52C6D9DE000202C5C /* UserDBRepository.swift in Sources */,

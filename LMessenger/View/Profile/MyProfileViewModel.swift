@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import PhotosUI
+import _PhotosUI_SwiftUI
 
 // @MainActor 클래스 내부에 있는 것들이 MainActor에서 접근할수있음
 @MainActor
@@ -13,6 +15,15 @@ class MyProfileViewModel: ObservableObject {
     
     @Published var userInfo: User?
     @Published var isPresentedDescEditView: Bool = false
+    @Published var imageSelection: PhotosPickerItem? {
+        didSet {
+            // selection이 추가되었을때
+            // didSet이 됐을때 그것을 데이터화 하는 작업
+            Task {
+                await updateProfileImage(pickerItem: imageSelection)
+            }
+        }
+    }
     
     private var container: DIContainer
     private let userId: String
@@ -32,6 +43,17 @@ class MyProfileViewModel: ObservableObject {
         do{
             try await container.services.userService.updateDescription(userId: userId, description: description)
             userInfo?.description = description
+        } catch {
+            
+        }
+    }
+    
+    func updateProfileImage(pickerItem: PhotosPickerItem?) async {
+        guard let pickerItem else { return }
+        
+        do {
+            let data = try await container.services.photoPicerService.loadTransferable(from: pickerItem)
+            
         } catch {
             
         }

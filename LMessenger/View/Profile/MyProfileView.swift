@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct MyProfileView: View {
     
@@ -53,9 +54,8 @@ struct MyProfileView: View {
     }
     
     var profileView: some View {
-        Button {
-            
-        } label: {
+        PhotosPicker(selection: $viewModel.imageSelection,
+                     matching: .images) {
             Image("person")
                 .resizable()
                 .frame(width: 80, height: 80)
@@ -85,7 +85,7 @@ struct MyProfileView: View {
             }
         }
     }
-      
+    
     var menuView: some View {
         HStack(alignment: .top, spacing: 27) {
             ForEach(MyProfileMenuType.allCases, id: \.self) { menu in
