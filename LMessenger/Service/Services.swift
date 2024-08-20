@@ -12,6 +12,7 @@ protocol ServiceType {
     var userService: UserServieType { get set }
     var contactService: ContactServiceType { get set }
     var photoPicerService: PhotoPickerServiceType { get set }
+    var uploadService: UploadServiceType { get set }
 }
 
 class Services: ServiceType {
@@ -19,12 +20,14 @@ class Services: ServiceType {
     var userService: UserServieType
     var contactService: ContactServiceType
     var photoPicerService: PhotoPickerServiceType
+    var uploadService: UploadServiceType
     
     init() {
         self.authService = AuthenticationService()
         self.userService = UserService(dbRepository: UserDBRepository())
         self.contactService = ContactService()
         self.photoPicerService = PhotoPickerService()
+        self.uploadService = UploadService()
     }
 }
 
@@ -33,4 +36,5 @@ class StubService: ServiceType {
     var userService: UserServieType = StubUserService()
     var contactService: ContactServiceType = StubContactService()
     var photoPicerService: PhotoPickerServiceType = StubPhotoPickerService()
+    var uploadService: UploadServiceType = StubUploadService()
 }
