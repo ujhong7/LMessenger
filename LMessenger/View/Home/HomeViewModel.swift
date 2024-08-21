@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject {
         case requestContacts
         case presentMyProfileView
         case presentOtherProfileView(String)
+        case goToChat(User)
     }
     
     @Published var myUser: User?
@@ -72,6 +73,9 @@ class HomeViewModel: ObservableObject {
             
         case let .presentOtherProfileView(userId):
             modalDestination = .otherProfile(userId)
+            
+        case let .goToChat(otherUser):
+            // ChatRooms/myUserId/otherUserId
         }
     }
 }
