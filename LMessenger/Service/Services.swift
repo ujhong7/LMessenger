@@ -27,7 +27,7 @@ class Services: ServiceType {
         self.userService = UserService(dbRepository: UserDBRepository())
         self.contactService = ContactService()
         self.photoPicerService = PhotoPickerService()
-        self.uploadService = UploadService()
+        self.uploadService = UploadService(provider: UploadProvider())
     }
 }
 

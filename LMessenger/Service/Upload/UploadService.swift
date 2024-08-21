@@ -15,16 +15,23 @@ protocol UploadServiceType {
 }
 
 class UploadService: UploadServiceType {
-    func uploadImage(source: UploadSourceType, data: Data) async throws -> URL {
-        <#code#>
+    
+    private let provider: UploadProviderType
+    
+    init(provider: UploadProviderType) {
+        self.provider = provider
     }
     
+    func uploadImage(source: UploadSourceType, data: Data) async throws -> URL {
+        let url = try await provider.upload(path: source.path, data: data, fileName: UUID().uuidString)
+        return url
+    }
     
 }
 
 class StubUploadService: UploadServiceType {
     func uploadImage(source: UploadSourceType, data: Data) async throws -> URL {
-        <#code#>
+        return URL(string: "")!
     }
     
     
