@@ -23,7 +23,7 @@ struct OtherProfileView: View {
                     .ignoresSafeArea(edges: .vertical)
                 
                 VStack{
-                    Spacer()
+                      Spacer()
                     
                     URLImageView(urlString: viewModel.userInfo?.profileURL)
                         .frame(width: 80, height: 80)

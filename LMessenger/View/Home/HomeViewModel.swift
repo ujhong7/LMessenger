@@ -24,11 +24,14 @@ class HomeViewModel: ObservableObject {
     @Published var modalDestination: HomeModalDestination?
     
     var userId: String
+    
     private var container: DIContainer
+    private var navigationRouter: NavigationRouter
     private var subscriptions = Set<AnyCancellable>()
     
-    init(container: DIContainer, userId: String) {
+    init(container: DIContainer, navigationRouter: NavigationRouter, userId: String) {
         self.container = container
+        self.navigationRouter = navigationRouter
         self.userId = userId
     }
     
@@ -76,6 +79,12 @@ class HomeViewModel: ObservableObject {
             
         case let .goToChat(otherUser):
             // ChatRooms/myUserId/otherUserId
+            container.services.chatRoomService.createChatRoomIfNeeded(myUserId: userId, otherUserId: otherUser.id, otherUserName: otherUser.name)
+                .sink { completion in
+                    
+                } receiveValue: { [weak self] chatRoom in
+                    self?.navigationRouter.push(to: .chat)
+                }.store(in: &subscriptions)
         }
     }
 }
