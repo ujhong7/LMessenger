@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct ChatView: View {
+    
+    @StateObject var viewModel: ChatViewModel
+    
     var body: some View {
         Text("ChatView")
     }
+    
 }
 
 struct ChatView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        ChatView()
+        ChatView(viewModel: .init(container: DIContainer(services: StubService()),
+                                  chatRoomId: "chatRoom1_id",
+                                  myUserId: "user1_id",
+                                  otherUserId: "user2_id"))
     }
 }
