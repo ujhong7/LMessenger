@@ -77,6 +77,9 @@
 		1D7484462C7B521100202C5C /* ChatItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484452C7B521100202C5C /* ChatItemView.swift */; };
 		1D7484482C7B5BBA00202C5C /* ChatItemDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484472C7B5BBA00202C5C /* ChatItemDirection.swift */; };
 		1D74844C2C7B666500202C5C /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D74844B2C7B666500202C5C /* KeyboardToolbar.swift */; };
+		1D74844E2C7C5D7700202C5C /* ChatDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D74844D2C7C5D7700202C5C /* ChatDBRepository.swift */; };
+		1D7484502C7C81F100202C5C /* ChatObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D74844F2C7C81F100202C5C /* ChatObject.swift */; };
+		1D7484522C7C854800202C5C /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484512C7C854800202C5C /* ChatService.swift */; };
 		723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */; };
 		723ABD892AFFF1B800C260F1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */; };
 		723ABD8B2AFFF1B900C260F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723ABD8A2AFFF1B900C260F1 /* Assets.xcassets */; };
@@ -171,6 +174,9 @@
 		1D7484452C7B521100202C5C /* ChatItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItemView.swift; sourceTree = "<group>"; };
 		1D7484472C7B5BBA00202C5C /* ChatItemDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItemDirection.swift; sourceTree = "<group>"; };
 		1D74844B2C7B666500202C5C /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
+		1D74844D2C7C5D7700202C5C /* ChatDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDBRepository.swift; sourceTree = "<group>"; };
+		1D74844F2C7C81F100202C5C /* ChatObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatObject.swift; sourceTree = "<group>"; };
+		1D7484512C7C854800202C5C /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		723ABD832AFFF1B800C260F1 /* LMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessengerApp.swift; sourceTree = "<group>"; };
 		723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
@@ -236,8 +242,9 @@
 				1D7483AE2C68AA7F00202C5C /* AuthenticationService.swift */,
 				1D7483D62C6D9E1000202C5C /* UserService.swift */,
 				1D7483F22C703A6B00202C5C /* ContactService.swift */,
-				1D7483C22C69043A00202C5C /* ServiceError.swift */,
 				1D7484262C7671EB00202C5C /* ChatRoomService.swift */,
+				1D7484512C7C854800202C5C /* ChatService.swift */,
+				1D7483C22C69043A00202C5C /* ServiceError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -328,6 +335,7 @@
 				1D7483DB2C6DA57000202C5C /* DTO */,
 				1D7483D42C6D9DE000202C5C /* UserDBRepository.swift */,
 				1D7484222C764B2E00202C5C /* ChatRoomDBRepository.swift */,
+				1D74844D2C7C5D7700202C5C /* ChatDBRepository.swift */,
 				1D7483DC2C6DA5CE00202C5C /* DBError.swift */,
 			);
 			path = Repository;
@@ -338,6 +346,7 @@
 			children = (
 				1D7483D92C6DA56400202C5C /* UserObject.swift */,
 				1D7484242C7666D800202C5C /* ChatRoomObject.swift */,
+				1D74844F2C7C81F100202C5C /* ChatObject.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -698,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D7483C12C6903EB00202C5C /* User.swift in Sources */,
+				1D74844E2C7C5D7700202C5C /* ChatDBRepository.swift in Sources */,
 				1D7483D02C69E79500202C5C /* HomeViewModel.swift in Sources */,
 				1D7483DD2C6DA5CE00202C5C /* DBError.swift in Sources */,
 				1D7483B52C68B5A500202C5C /* LoginIntroView.swift in Sources */,
@@ -737,6 +747,7 @@
 				723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */,
 				1D7484072C7474B600202C5C /* UploadService.swift in Sources */,
 				1D7483B92C68F5BB00202C5C /* LoginView.swift in Sources */,
+				1D7484522C7C854800202C5C /* ChatService.swift in Sources */,
 				1D7484182C75E37B00202C5C /* URLImageView.swift in Sources */,
 				1D74842E2C7740E800202C5C /* NavigationRouter.swift in Sources */,
 				1D7483AF2C68AA7F00202C5C /* AuthenticationService.swift in Sources */,
@@ -758,6 +769,7 @@
 				1D74840C2C75B6BC00202C5C /* ImageCacheService.swift in Sources */,
 				1D7483D52C6D9DE000202C5C /* UserDBRepository.swift in Sources */,
 				1D7483B72C68B5CB00202C5C /* MainTabView.swift in Sources */,
+				1D7484502C7C81F100202C5C /* ChatObject.swift in Sources */,
 				1D74842C2C7740C300202C5C /* NavigationDestination.swift in Sources */,
 				1D7483CE2C69E36D00202C5C /* ChatListView.swift in Sources */,
 				1D7483DA2C6DA56400202C5C /* UserObject.swift in Sources */,

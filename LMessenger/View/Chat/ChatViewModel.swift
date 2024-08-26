@@ -11,7 +11,8 @@ import Combine
 class ChatViewModel: ObservableObject {
     
     enum Action {
-        
+        case load
+        case addChat(String)
     }
     
     @Published var chatDataList: [ChatData] = []
@@ -32,9 +33,19 @@ class ChatViewModel: ObservableObject {
         self.myUserId = myUserId
         self.otherUserId = otherUserId
         
-//        updateChatDataList(.init(chatId: "chat1_id", userId: "user1_id", message: "Hello", date: Date()))
-//        updateChatDataList(.init(chatId: "chat2_id", userId: "user2_id", message: "World", date: Date()))
-//        updateChatDataList(.init(chatId: "chat3_id", userId: "user1_id", message: "😊", date: Date()))
+        bind()
+        
+        //        updateChatDataList(.init(chatId: "chat1_id", userId: "user1_id", message: "Hello", date: Date()))
+        //        updateChatDataList(.init(chatId: "chat2_id", userId: "user2_id", message: "World", date: Date()))
+        //        updateChatDataList(.init(chatId: "chat3_id", userId: "user1_id", message: "😊", date: Date()))
+    }
+    
+    func bind() {
+        container.services.chatService.observeChat(chatRoomId: chatRoomId)
+            .sink { [weak self] chat in
+                guard let chat else { return }
+                self?.updateChatDataList(chat)
+            }.store(in: &subscriptions)
     }
     
     func updateChatDataList(_ chat: Chat) {
@@ -53,21 +64,43 @@ class ChatViewModel: ObservableObject {
     }
     
     func send(action: Action) {
-        
+        switch action {
+        case .load:
+            Publishers.Zip(container.services.userService.getUser(userId: myUserId),
+                           container.services.userService.getUser(userId: otherUserId))
+            .sink { completion in
+                
+            } receiveValue: { [weak self] myUser, otherUser in
+                self?.myUser = myUser
+                self?.otherUser = otherUser
+            }.store(in: &subscriptions)
+            
+        case let .addChat(message):
+            let chat: Chat = .init(chatId: UUID().uuidString,
+                                   userId: myUserId,
+                                   message: message,
+                                   date: Date())
+            
+            container.services.chatService.addChat(chat, to: chatRoomId)
+                .sink { completion in
+                } receiveValue: { [weak self] _ in
+                    self?.message = ""
+                }.store(in: &subscriptions)
+        }
     }
     
 }
 
 /*
  
-    Chats/
-        chatRoomId/
-            chatId1/Chat
-                chatId1/Chat
-                chatId1/Chat
-                chatId1/Chat
+ Chats/
+ chatRoomId/
+ chatId1/Chat
+ chatId1/Chat
+ chatId1/Chat
+ chatId1/Chat
  
  
  Chat: Date > 2024.08.25
-  
+ 
  */
