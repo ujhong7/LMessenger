@@ -11,6 +11,7 @@ struct ChatView: View {
     
     @EnvironmentObject var navigationRouter: NavigationRouter
     @StateObject var viewModel: ChatViewModel
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         ScrollView {
@@ -41,6 +42,41 @@ struct ChatView: View {
                 Image("bookmark")
                 Image("settings")
             }
+        }
+        .keyboardToolbar(height: 50) {
+            HStack(spacing: 13) {
+                Button {
+                    
+                } label: {
+                    Image("other_add")
+                }
+                Button {
+                    
+                } label: {
+                    Image("image_add")
+                }
+                Button {
+                    
+                } label: {
+                    Image("photo_camera")
+                }
+                
+                TextField("", text: $viewModel.message)
+                    .font(.system(size: 16))
+                    .foregroundColor(.bkText)
+                    .focused($isFocused)
+                    .padding(.horizontal, 13)
+                    .background(Color.greyCool)
+                    .cornerRadius(20)
+                
+                Button {
+                    
+                } label: {
+                    Image("send")
+                }
+                
+            }
+            .padding(.horizontal, 27)
         }
     }
     
