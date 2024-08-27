@@ -52,7 +52,7 @@ class MyProfileViewModel: ObservableObject {
         guard let pickerItem else { return }
         
         do {
-            let data = try await container.services.photoPicerService.loadTransferable(from: pickerItem)
+            let data = try await container.services.photoPickerService.loadTransferable(from: pickerItem)
             let url =  try await container.services.uploadService.uploadImage(source: .profile(userId: userId), data: data)
             try await container.services.userService.updateProfileURL(userId: userId, urlString: url.absoluteString)
             

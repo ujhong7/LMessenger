@@ -11,6 +11,7 @@ import Combine
 protocol ChatRoomServiceType {
     func createChatRoomIfNeeded(myUserId: String, otherUserId: String, otherUserName: String) -> AnyPublisher<ChatRoom, ServiceError>
     func loadChatRooms(myUserId: String) -> AnyPublisher<[ChatRoom], ServiceError>
+    func updateChatRoomLastMessage(chatRoomId: String, myUserId: String, myUserName: String, otherUserId: String, lastMessage: String) -> AnyPublisher<Void, ServiceError>
 }
 
 class ChatRoomService: ChatRoomServiceType {
@@ -49,6 +50,11 @@ class ChatRoomService: ChatRoomServiceType {
             .eraseToAnyPublisher()
     }
     
+    func updateChatRoomLastMessage(chatRoomId: String, myUserId: String, myUserName: String, otherUserId: String, lastMessage: String) -> AnyPublisher<Void, ServiceError> {
+        return dbRepository.updateChatRoomLastMessage(chatRoomId: chatRoomId, myUserId: myUserId, myUserName: myUserName, otherUserId: otherUserId, lastMessage: lastMessage)
+            .mapError { ServiceError.error($0) }
+            .eraseToAnyPublisher()
+    }
 }
 
 class StubChatRoomService: ChatRoomServiceType {
@@ -59,5 +65,9 @@ class StubChatRoomService: ChatRoomServiceType {
     
     func loadChatRooms(myUserId: String) -> AnyPublisher<[ChatRoom], ServiceError> {
         Just([.stub1, .stub2]).setFailureType(to: ServiceError.self).eraseToAnyPublisher()
+    }
+    
+    func updateChatRoomLastMessage(chatRoomId: String, myUserId: String, myUserName: String, otherUserId: String, lastMessage: String) -> AnyPublisher<Void, ServiceError> {
+        Empty().eraseToAnyPublisher()
     }
 }

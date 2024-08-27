@@ -7,18 +7,25 @@
 
 import SwiftUI
 import Combine
+import PhotosUI
 
 class ChatViewModel: ObservableObject {
     
     enum Action {
         case load
         case addChat(String)
+        case uploadImage(PhotosPickerItem?)
     }
     
     @Published var chatDataList: [ChatData] = []
     @Published var myUser: User?
     @Published var otherUser: User?
     @Published var message: String = ""
+    @Published var imageSelection: PhotosPickerItem? {
+        didSet {
+            send(action: .uploadImage(imageSelection))
+        }
+    }
     
     private let chatRoomId: String
     private let myUserId: String
@@ -82,15 +89,53 @@ class ChatViewModel: ObservableObject {
                                    date: Date())
             
             container.services.chatService.addChat(chat, to: chatRoomId)
+                .flatMap { chat in
+                    self.container.services.chatRoomService.updateChatRoomLastMessage(chatRoomId: self.chatRoomId,
+                                                                                      myUserId: self.myUserId,
+                                                                                      myUserName: self.myUser?.name ?? "",
+                                                                                      otherUserId: self.otherUserId,
+                                                                                      lastMessage: chat.lastMessage)
+                }
                 .sink { completion in
                 } receiveValue: { [weak self] _ in
                     self?.message = ""
+                }.store(in: &subscriptions)
+            
+        case let .uploadImage(pickerItem):
+            // 1. data화
+            // 2. uploadService -> storage
+            // 3. chat -> add
+            
+            guard let pickerItem else { return }
+            
+            container.services.photoPickerService.loadTransferable(from: pickerItem)
+                .flatMap { data in
+                    self.container.services.uploadService.uploadImage(source: .chat(chatRoomId: self.chatRoomId), data: data)
+                }
+                .flatMap{ url in
+                    let chat: Chat = .init(chatId: UUID().uuidString,
+                                           userId: self.myUserId,
+                                           photoURL: url.absoluteString,
+                                           date: Date())
+                    return self.container.services.chatService.addChat(chat, to: self.chatRoomId)
+                }
+                .flatMap { chat in
+                    self.container.services.chatRoomService.updateChatRoomLastMessage(chatRoomId: self.chatRoomId,
+                                                                                      myUserId: self.myUserId,
+                                                                                      myUserName: self.myUser?.name ?? "",
+                                                                                      otherUserId: self.otherUserId,
+                                                                                      lastMessage: chat.lastMessage)
+                }
+                .sink { completion in
+                    
+                } receiveValue: { _ in
+                    
                 }.store(in: &subscriptions)
         }
     }
     
 }
-
+  
 /*
  
  Chats/
