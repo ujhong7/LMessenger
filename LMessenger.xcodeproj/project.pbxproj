@@ -81,6 +81,8 @@
 		1D7484502C7C81F100202C5C /* ChatObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D74844F2C7C81F100202C5C /* ChatObject.swift */; };
 		1D7484522C7C854800202C5C /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484512C7C854800202C5C /* ChatService.swift */; };
 		1D7484542C7DBC7C00202C5C /* ChatImageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484532C7DBC7B00202C5C /* ChatImageItemView.swift */; };
+		1D7484582C7EEDD600202C5C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484572C7EEDD600202C5C /* SearchViewModel.swift */; };
+		1D74845A2C7EF12400202C5C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484592C7EF12400202C5C /* SearchBar.swift */; };
 		723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */; };
 		723ABD892AFFF1B800C260F1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */; };
 		723ABD8B2AFFF1B900C260F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723ABD8A2AFFF1B900C260F1 /* Assets.xcassets */; };
@@ -179,6 +181,9 @@
 		1D74844F2C7C81F100202C5C /* ChatObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatObject.swift; sourceTree = "<group>"; };
 		1D7484512C7C854800202C5C /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		1D7484532C7DBC7B00202C5C /* ChatImageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatImageItemView.swift; sourceTree = "<group>"; };
+		1D7484562C7E2D1D00202C5C /* LMessenger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LMessenger.entitlements; sourceTree = "<group>"; };
+		1D7484572C7EEDD600202C5C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		1D7484592C7EF12400202C5C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		723ABD832AFFF1B800C260F1 /* LMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessengerApp.swift; sourceTree = "<group>"; };
 		723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
@@ -472,6 +477,8 @@
 			isa = PBXGroup;
 			children = (
 				1D7484332C77439100202C5C /* SearchView.swift */,
+				1D7484572C7EEDD600202C5C /* SearchViewModel.swift */,
+				1D7484592C7EF12400202C5C /* SearchBar.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -511,6 +518,7 @@
 		723ABD852AFFF1B800C260F1 /* LMessenger */ = {
 			isa = PBXGroup;
 			children = (
+				1D7484562C7E2D1D00202C5C /* LMessenger.entitlements */,
 				1D7483AD2C68A89F00202C5C /* Info.plist */,
 				1D7483C42C6910B900202C5C /* GoogleService-Info.plist */,
 				723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */,
@@ -753,6 +761,7 @@
 				1D7483EF2C6FAC0A00202C5C /* MyProfileView.swift in Sources */,
 				1D7483BB2C68F7FF00202C5C /* LoginButtonStyle.swift in Sources */,
 				1D7484232C764B2E00202C5C /* ChatRoomDBRepository.swift in Sources */,
+				1D7484582C7EEDD600202C5C /* SearchViewModel.swift in Sources */,
 				1D7484482C7B5BBA00202C5C /* ChatItemDirection.swift in Sources */,
 				1D7483F12C6FAC1700202C5C /* OtherProfileView.swift in Sources */,
 				1D7484542C7DBC7C00202C5C /* ChatImageItemView.swift in Sources */,
@@ -785,6 +794,7 @@
 				1D74842C2C7740C300202C5C /* NavigationDestination.swift in Sources */,
 				1D7483CE2C69E36D00202C5C /* ChatListView.swift in Sources */,
 				1D7483DA2C6DA56400202C5C /* UserObject.swift in Sources */,
+				1D74845A2C7EF12400202C5C /* SearchBar.swift in Sources */,
 				1D7483E12C6FA66300202C5C /* Phase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -941,6 +951,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LMessenger/LMessenger.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LMessenger/Preview Content\"";
@@ -972,6 +983,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LMessenger/LMessenger.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LMessenger/Preview Content\"";

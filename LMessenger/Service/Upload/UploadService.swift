@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 // 이미지 업로드 할 경우 2가지 (내프로필,채팅 두곳)
-//  upload source type이라는 경로를 관리할 enum을 만들어서 path를 가져올 수 있도록..
+//  UploadSourceType이라는 경로를 관리할 enum을 만들어서 path를 가져올 수 있도록..
 
 protocol UploadServiceType {
     func uploadImage(source: UploadSourceType, data: Data) -> AnyPublisher<URL, ServiceError>

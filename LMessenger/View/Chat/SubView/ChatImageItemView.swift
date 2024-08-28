@@ -1,5 +1,5 @@
 //
-//  ChatItemImageView.swift
+//  ChatImageItemView.swift
 //  LMessenger
 //
 //  Created by yujaehong on 8/27/24.
