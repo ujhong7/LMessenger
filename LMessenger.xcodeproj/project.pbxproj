@@ -83,6 +83,9 @@
 		1D7484542C7DBC7C00202C5C /* ChatImageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484532C7DBC7B00202C5C /* ChatImageItemView.swift */; };
 		1D7484582C7EEDD600202C5C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484572C7EEDD600202C5C /* SearchViewModel.swift */; };
 		1D74845A2C7EF12400202C5C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484592C7EF12400202C5C /* SearchBar.swift */; };
+		1D74845F2C8168B800202C5C /* Search.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D74845D2C8168B800202C5C /* Search.xcdatamodeld */; };
+		1D7484622C81696000202C5C /* SearchDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484612C81696000202C5C /* SearchDataController.swift */; };
+		1D7484642C816B2C00202C5C /* RecentSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7484632C816B2C00202C5C /* RecentSearchView.swift */; };
 		723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */; };
 		723ABD892AFFF1B800C260F1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */; };
 		723ABD8B2AFFF1B900C260F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723ABD8A2AFFF1B900C260F1 /* Assets.xcassets */; };
@@ -184,6 +187,9 @@
 		1D7484562C7E2D1D00202C5C /* LMessenger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LMessenger.entitlements; sourceTree = "<group>"; };
 		1D7484572C7EEDD600202C5C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		1D7484592C7EF12400202C5C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		1D74845E2C8168B800202C5C /* Search.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Search.xcdatamodel; sourceTree = "<group>"; };
+		1D7484612C81696000202C5C /* SearchDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataController.swift; sourceTree = "<group>"; };
+		1D7484632C816B2C00202C5C /* RecentSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchView.swift; sourceTree = "<group>"; };
 		723ABD832AFFF1B800C260F1 /* LMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessengerApp.swift; sourceTree = "<group>"; };
 		723ABD882AFFF1B800C260F1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
@@ -232,6 +238,7 @@
 			children = (
 				1D7483E42C6FA75D00202C5C /* View */,
 				1D74842A2C7740A900202C5C /* Navigation */,
+				1D7484602C81694E00202C5C /* Search */,
 				1D74839A2C687E1900202C5C /* DIContainer.swift */,
 				1D7483DE2C6DAA9E00202C5C /* Constant.swift */,
 				1D7483E02C6FA66300202C5C /* Phase.swift */,
@@ -479,6 +486,7 @@
 				1D7484332C77439100202C5C /* SearchView.swift */,
 				1D7484572C7EEDD600202C5C /* SearchViewModel.swift */,
 				1D7484592C7EF12400202C5C /* SearchBar.swift */,
+				1D7484632C816B2C00202C5C /* RecentSearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -492,6 +500,14 @@
 				1D7484532C7DBC7B00202C5C /* ChatImageItemView.swift */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		1D7484602C81694E00202C5C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				1D7484612C81696000202C5C /* SearchDataController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		723ABD7A2AFFF1B800C260F1 = {
@@ -568,6 +584,7 @@
 				1D74838B2C687BB200202C5C /* LaunchScreen.storyboard */,
 				723ABD8A2AFFF1B900C260F1 /* Assets.xcassets */,
 				723ABDB12AFFF1F000C260F1 /* Colors.xcassets */,
+				1D74845D2C8168B800202C5C /* Search.xcdatamodeld */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -734,10 +751,12 @@
 				1D7483FE2C736B1800202C5C /* PhotoImage.swift in Sources */,
 				1D74841F2C763F5000202C5C /* OtherProfileViewModel.swift in Sources */,
 				1D74840F2C75CF6400202C5C /* MemoryStorage.swift in Sources */,
+				1D74845F2C8168B800202C5C /* Search.xcdatamodeld in Sources */,
 				1D7483AA2C68A4B000202C5C /* AppDelegate .swift in Sources */,
 				1D7483EC2C6FAA6200202C5C /* HomeModalDestination.swift in Sources */,
 				1D7484342C77439100202C5C /* SearchView.swift in Sources */,
 				1D74844C2C7B666500202C5C /* KeyboardToolbar.swift in Sources */,
+				1D7484622C81696000202C5C /* SearchDataController.swift in Sources */,
 				1D7484112C75D0E300202C5C /* DiskStorage.swift in Sources */,
 				1D74843E2C7B2A2A00202C5C /* ChatViewModel.swift in Sources */,
 				1D7484442C7B371700202C5C /* Date+Extension.swift in Sources */,
@@ -748,6 +767,7 @@
 				1D7483F32C703A6B00202C5C /* ContactService.swift in Sources */,
 				1D7483EA2C6FA84400202C5C /* ErrorView.swift in Sources */,
 				1D7484462C7B521100202C5C /* ChatItemView.swift in Sources */,
+				1D7484642C816B2C00202C5C /* RecentSearchView.swift in Sources */,
 				1D74841B2C75E3B900202C5C /* URLImageViewModel.swift in Sources */,
 				1D7484362C77663E00202C5C /* ChatListViewModel.swift in Sources */,
 				723ABD892AFFF1B800C260F1 /* AuthenticatedView.swift in Sources */,
@@ -1173,6 +1193,20 @@
 			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		1D74845D2C8168B800202C5C /* Search.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D74845E2C8168B800202C5C /* Search.xcdatamodel */,
+			);
+			currentVersion = 1D74845E2C8168B800202C5C /* Search.xcdatamodel */;
+			name = Search.xcdatamodeld;
+			path = /Users/yujaehong/Desktop/github/LMessenger/LMessenger/Resource/Search.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 723ABD7B2AFFF1B800C260F1 /* Project object */;
 }
