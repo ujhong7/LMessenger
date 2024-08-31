@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject {
         case requestContacts
         case presentMyProfileView
         case presentOtherProfileView(String)
+        case presentView(HomeModalDestination)
         case goToChat(User)
     }
     
@@ -77,6 +78,8 @@ class HomeViewModel: ObservableObject {
         case let .presentOtherProfileView(userId):
             modalDestination = .otherProfile(userId)
             
+        case .presentView(_): break
+            
         case let .goToChat(otherUser):
             // ChatRooms/myUserId/otherUserId
             container.services.chatRoomService.createChatRoomIfNeeded(myUserId: userId, otherUserId: otherUser.id, otherUserName: otherUser.name)
@@ -88,6 +91,7 @@ class HomeViewModel: ObservableObject {
                                                          myUserId: self.userId,
                                                          otherUserId: otherUser.id))
                 }.store(in: &subscriptions)
+    
         }
     }
 }
