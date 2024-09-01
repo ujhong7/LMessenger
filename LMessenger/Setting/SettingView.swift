@@ -11,6 +11,7 @@ struct SettingView: View {
     
     @AppStorage(AppStorageType.Appearacne) var appearance: Int = UserDefaults.standard.integer(forKey: AppStorageType.Appearacne)
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var appearanceController: AppearanceController
     @StateObject var viewModel: SettingViewModel
     
     var body: some View {
@@ -21,7 +22,7 @@ struct SettingView: View {
                         ForEach(section.settings) { setting in
                             Button {
                                 if let a = setting.item as? AppearanceType {
-                                    viewModel.send(action: .changeAppearance(a))
+                                    appearanceController.changeAppearance(a)
                                     appearance = a.rawValue
                                 }
                             } label: {
@@ -43,7 +44,7 @@ struct SettingView: View {
                 }
             }
         }
-        .preferredColorScheme(viewModel.appearance.colorScheme)
+        .preferredColorScheme(appearanceController.appearance.colorScheme)
     }
     
 }
