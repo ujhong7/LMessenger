@@ -12,13 +12,17 @@ struct SearchView: View {
     @Environment(\.managedObjectContext) var objectContext
     @EnvironmentObject var navigationRouter: NavigationRouter
     @StateObject var viewModel: SearchViewModel
-    
+    @AccessibilityFocusState var isSearchBarFocused: Bool
+
     var body: some View {
         VStack {
             topView
             
             if viewModel.searchResults.isEmpty {
-                RecentSearchView()
+                RecentSearchView { text in
+                    viewModel.send(action: .setSearchText(text))
+                    isSearchBarFocused = true
+                }
             } else{
                 
                 List {
@@ -48,7 +52,7 @@ struct SearchView: View {
             Button {
                 navigationRouter.pop()
             } label: {
-                Image("back_search")
+                Image("back_search", label: Text("뒤로가기"))
             }
             
             SearchBar(text: $viewModel.searchText,
@@ -60,7 +64,7 @@ struct SearchView: View {
             Button {
                 viewModel.send(action: .clearSearchText)
             } label: {
-                Image("close_search")
+                Image("close_search", label: Text("검색 취소"))
             }
         }
         .padding(.horizontal, 20)

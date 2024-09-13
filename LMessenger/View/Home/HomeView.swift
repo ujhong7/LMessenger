@@ -47,13 +47,13 @@ struct HomeView: View {
         case .success:
             loadedView
                 .toolbar {
-                    Image("bookmark")
-                    Image("notifications")
-                    Image("person_add")
+                    Image(decorative: "bookmark")
+                    Image(decorative: "notifications")
+                    Image(decorative: "person_add")
                     Button {
                         // TODO:
                     } label: {
-                        Image("settings")
+                        Image("settings", label: Text("설정"))
                     }
                 }
         case .fail:
@@ -100,6 +100,9 @@ struct HomeView: View {
                                     .foregroundColor(.bkText)
                                 Spacer()
                             }
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel(user.name)
+                            .accessibilityAddTraits(.isButton)
                         }
                         .padding(.horizontal, 30)
                     }
@@ -130,6 +133,11 @@ struct HomeView: View {
         .padding(.horizontal, 30)
         .onTapGesture {
             viewModel.send(action: .presentMyProfileView)
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityHint(Text("내 프로필을 보려면 이중탭하십시오."))
+        .accessibilityAction {
+            viewModel.send(action: .presentView(.myProfile))
         }
     }
     

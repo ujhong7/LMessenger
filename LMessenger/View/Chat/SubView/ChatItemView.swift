@@ -39,7 +39,7 @@ struct ChatItemView: View {
     }
     
     var dateView: some View {
-        Text(date.tochatTime)
+        Text(date.toChatTime)
             .font(.system(size: 10))
             .foregroundColor(.greyDeep)
     }

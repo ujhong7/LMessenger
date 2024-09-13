@@ -44,9 +44,9 @@ struct ChatView: View {
             }
             
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Image("search_chat")
-                Image("bookmark")
-                Image("settings")
+                Image(decorative: "search_chat")
+                Image(decorative: "bookmark")
+                Image(decorative: "settings")
             }
         }
         .keyboardToolbar(height: 50) {
@@ -78,7 +78,7 @@ struct ChatView: View {
                     viewModel.send(action: .addChat(viewModel.message))
                     isFocused = false
                 } label: {
-                    Image("send")
+                    Image("send", label: Text("전송"))
                 }
                 .disabled(viewModel.message.isEmpty)
             }
@@ -98,32 +98,38 @@ struct ChatView: View {
                                      direction: viewModel.getDirection(id: chat.userId),
                                      date: chat.date)
                         .id(chat.chatId)
+                        .accessibilityElement(children: .combine)
                     } else if let photoURL = chat.photoURL {
                         ChatImageItemView(urlString: photoURL,
-                                          direction: viewModel.getDirection(id: chat.userId))
+                                          direction: viewModel.getDirection(id: chat.userId),
+                                          date: chat.date)
                         .id(chat.chatId)
+                        .accessibilityElement(children: .combine)
+                        .accessibility(addTraits: .isImage)
                     }
                     
                 }
             } header: {
-                headerView(dataStr: chatData.dateStr)
+                headerView(dateStr: chatData.dateStr)
             }
         }
     }
     
-    func headerView(dataStr: String) -> some View {
+    func headerView(dateStr: String) -> some View {
         ZStack {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(width: 76, height: 20)
                 .background(Color.chatNotice)
                 .cornerRadius(50)
-            Text(dataStr)
+            Text(dateStr)
                 .font(.system(size: 10))
                 .foregroundColor(.bgWh)
         }
         .padding(.top)
+        .accessibilityLabel(Text(dateStr.toChatDate?.toChatDataAccesbiility ?? ""))
     }
+    
 }
 
 struct ChatView_Previews: PreviewProvider {
