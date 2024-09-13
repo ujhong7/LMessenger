@@ -360,7 +360,7 @@ Core Data를 설정하기 위해 `NSPersistentContainer`를 사용했습니다.
 `loadPersistentStores`를 호출하여 데이터베이스를 설정하고, Core Data 스토어를 로드합니다.  
 이 `persistentContainer`는 이후 검색 결과를 저장하고 불러오는 데 사용됩니다.  
 
-### **검색 결과 저장 및 삭제 기능**
+#### **검색 결과 저장 및 삭제 기능**
 
 검색 결과를 저장하기 위해 `NSManagedObjectContext`를 사용했습니다.  
 이 컨텍스트는 **Core Data의 데이터를 관리**하며, **데이터를 저장하거나 삭제하는 작업**을 처리합니다.  
@@ -381,7 +381,7 @@ Core Data를 설정하기 위해 `NSPersistentContainer`를 사용했습니다.
 이 코드는 사용자가 삭제 버튼을 누를 때,  
 `objectContext`에서 해당 검색 결과를 삭제하고 변경 사항을 저장하는 역할을 합니다.  
 
-### **UI에서 검색 결과 보여주기**
+#### **UI에서 검색 결과 보여주기**
 
 **SwiftUI**와 Core Data의 **FetchRequest**를 사용하여 데이터를 불러옵니다.  
 
@@ -392,5 +392,5 @@ Core Data를 설정하기 위해 `NSPersistentContainer`를 사용했습니다.
 - 이 코드는 `@FetchRequest`를 사용하여 Core Data에서 저장된 검색 결과를 불러옵니다.   
 `SortDescriptor`를 통해 결과를 날짜순으로 정렬하여 표시하고, 저장된 결과가 없을 경우 "검색 내역이 없습니다."라는 메시지를 출력합니다.   
 
-### 정리
+#### 정리
 
