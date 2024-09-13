@@ -320,7 +320,7 @@ SwiftUI의 선언형 스타일과 UIKit의 복잡한 델리게이트 패턴을 �
 1. **프로필 화면 접근성 추가**
     - 사용자가 자신의 프로필을 쉽게 확인하고 상호작용할 수 있도록 프로필 사진 및 정보에 접근성 요소를 추가했습니다.
     - `accessibilityElement(children: .combine)`을 적용하여 VoiceOver가 프로필 정보를 하나의 요소로 읽도록 했으며, "내 프로필 보기"라는 라벨을 설정하여 사용자가 이중탭으로 자신의 프로필을 열 수 있게 했습니다.  
-    <img width="600" alt="접근성1" src="https://github.com/user-attachments/assets/3b76d68d-81f0-4085-8123-e81682a950bd">
+    <img width="450" alt="접근성1" src="https://github.com/user-attachments/assets/3b76d68d-81f0-4085-8123-e81682a950bd">
 
 
 2. **친구 목록 접근성 개선**
