@@ -326,10 +326,14 @@ SwiftUI의 선언형 스타일과 UIKit의 복잡한 델리게이트 패턴을 �
 2. **친구 목록 접근성 개선**
     - 친구 목록에서 각 친구 이름을 VoiceOver가 명확하게 읽을 수 있도록 설정했습니다.
     - 각 친구 항목을 버튼처럼 동작하도록 만들어, 사용자들이 탭으로 친구 프로필을 열 수 있도록 하였으며, VoiceOver를 사용한 탐색이 원활해졌습니다.
+    <img width="400" alt="접근성2" src="https://github.com/user-attachments/assets/88068e86-1cd1-40e3-920f-a26d37f079df">
+
     
-3. **메시지 탐색 및 전송 기능**
+3. **메시지 읽기**
     - 채팅 화면에서 각 메시지에 접근성을 적용해 VoiceOver가 메시지를 적절히 읽어줄 수 있도록 구성했습니다. 특히, 각 메시지에 사용된 날짜 정보와 메시지 내용을 함께 읽을 수 있도록 접근성을 설정했습니다.
     - 이미지 메시지에 대해서도 `accessibility(addTraits: .isImage)`를 적용하여 VoiceOver가 이미지가 첨부되었음을 인식하고 적절히 안내할 수 있도록 했습니다.
+    <img width="400" alt="접근성3" src="https://github.com/user-attachments/assets/fbe3d235-a464-435e-9a4c-a27be270f6e7">
+
 
 #### 📝 **결과**
 
